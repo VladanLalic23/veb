@@ -1,18 +1,34 @@
 package projekat.veb.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-//import projekat.veb.repo.userRepo;
+import projekat.veb.repo.userRepo;
 
-@Controller
+@RestController
+@RequestMapping()
+@CrossOrigin
 public class UserController {
 
-    // @Autowired
-    // private userRepo userRepo;
+    private userRepo userRepo;
 
     @GetMapping("/")
-    public String index() {
-        return "index.html";
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("home");
+        return modelAndView;
     }
+
+    /*
+     * @RequestMapping("/registration")
+     * public String RegistrationForm(Model model) {
+     * model.addAttribute("user", new User());
+     * return "registration.html";
+     * }
+     * 
+     */
 }

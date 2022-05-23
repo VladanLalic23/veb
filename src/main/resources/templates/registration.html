@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registacija</title>
+    <link rel="stylesheet" th:href="@{css/registration.css}">
+</head>
+
+    <body>
+    
+        <div class="container">
+            <h2>Registracija</h2>  
+            <form action="" th:action="@{/process_register}" th:object="${user}"
+            method="post">
+                <input type="text" th:field="*{username}" name="username" id="username" placeholder="korisnicko ime">
+                <input type="text" name="name" id="name" placeholder="ime">
+                <input type="text" name="lastname" id="lastname" placeholder="prezime">
+                <input type="password" name="pass" id="pass" placeholder="lozinka">
+                <input type="password" name="confirm-pass" id="confirm-pass" placeholder=" potvrdi lozinku">
+                <div>
+                    <label>
+                        Pol :
+                    </label><br>
+                    <input type="radio" value="Male" name="gender" checked> Musko
+                    <input type="radio" value="Female" name="gender"> Zensko     
+                </div>
+                <label for="dateBirht">Datum rodjenja</label>
+                
+                <input type="date" id="start" name="trip-start">
+    
+                <div class="btns">
+                    <button type="submit">Registruj se</button>
+                </div>
+    
+            </form>
+        </div>
+    </body>
+
+</html>
